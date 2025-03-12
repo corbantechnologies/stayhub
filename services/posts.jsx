@@ -2,6 +2,7 @@ import { urlActions, urlMultipartActions } from "@/tools/api";
 
 export const createListing = async (values, axiosAuth) => {
   try {
+    console.log(values,axiosAuth);
     const {data} = await urlMultipartActions.post(`/api/listings/`, values, axiosAuth);
     return data;
     

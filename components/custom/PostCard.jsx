@@ -2,7 +2,7 @@ import { Dot, Heart, MapPin, Star } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-function PostCard({image, title, location, features, price}) {
+function PostCard({image,guests, title, location, price}) {
   return (
     <Link href={`/listing/${title}`} className="max-w-[400px]">
         <div className="relative max-w-[400px] rounded-xl overflow-hidden">
@@ -21,9 +21,9 @@ function PostCard({image, title, location, features, price}) {
             </div>
            <p className="flex text-sm items-center gap-1"><MapPin size={18} />{location}</p>
             <ul className="flex flex-wrap text-sm gap-2 text-[#5e5e5e]">
-                <li className="flex">{features?.guests} guests</li>
-                <li className="flex"><Dot size={20}/>{features?.bedrooms} bedrooms</li>
-                <li className="flex"><Dot size={20}/>{features?.beds} beds</li>
+                <li className="flex">{guests} guests</li>
+                <li className="flex"><Dot size={20}/>4 bedrooms</li>
+                <li className="flex"><Dot size={20}/>4 beds</li>
             </ul>
             <p className="font-semibold">Ksh {price} night</p>
         </div>

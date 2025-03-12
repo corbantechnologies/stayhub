@@ -51,7 +51,7 @@ function Navbar() {
                 {session ?
                 <div >
                   <Button asChild variant='ghost'>
-                  <Link href={`/host/${session?.user?.id}`} className="flex items-center gap-1"> <User/> Profile</Link>
+                  <Link href={`${session?.user.is_host ? '/host' : '/guest'}/${session?.user?.id}`} className="flex items-center gap-1"> <User/> Profile</Link>
                   </Button>
                 <Button onClick={() => signOut({ callbackUrl: process.env.NEXTAUTH_URL, redirect: true })} variant='ghost' className='mt-2 flex gap-1 items-center cursor-pointer'>
                  <LogOut size={18}/> Log out

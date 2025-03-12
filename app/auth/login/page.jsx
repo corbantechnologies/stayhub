@@ -61,7 +61,7 @@ function Login() {
         setLoading(false);
         toast.success("Signin successful");
         if(session?.user?.is_host){
-          router?.push("/host");
+          router?.push(`/host/${session?.user.id}`);
         }else{
           router?.push("/");
         }

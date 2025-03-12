@@ -144,10 +144,6 @@ export const ProductForm = ({ initialData }) => {
     try {
       setLoading(true);
       if (initialData) {
-        // const updatedImages = initialImages.filter((image) => !deletedImages.has(image));
-        // updatedImages.forEach((image) => {
-        //   formData.append('uploaded_images', image.image);
-        // });
         const data = {
           listingId,
           values: formData,
@@ -323,7 +319,7 @@ export const ProductForm = ({ initialData }) => {
                   <FormItem>
                     <FormLabel>Check-in time</FormLabel>
                     <FormControl>
-                      <Input disabled={loading} placeholder='9:00 am - 10:00 pm' {...field} />
+                      <Input type='time' disabled={loading} placeholder='9:00 am - 10:00 pm' {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -336,7 +332,7 @@ export const ProductForm = ({ initialData }) => {
                   <FormItem>
                     <FormLabel>Check-out time</FormLabel>
                     <FormControl>
-                      <Input disabled={loading} placeholder='9:00 am - 6:00 pm' {...field} />
+                      <Input type='time' disabled={loading} placeholder='9:00 am - 6:00 pm' {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

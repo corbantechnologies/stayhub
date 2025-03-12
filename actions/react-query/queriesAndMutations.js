@@ -25,6 +25,7 @@ export const useGetHostListings = (axiosAuth)=>{
     return useQuery({
         queryKey: [QUERY_KEYS.GET_LISTINGS],
         queryFn:()=> getHostListings(axiosAuth),
+        enabled:!!axiosAuth
       });
 }
 export const useGetGlobalListings = ()=>{
