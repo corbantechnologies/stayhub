@@ -2,10 +2,8 @@ import { urlActions, urlMultipartActions } from "@/tools/api";
 
 export const createListing = async (values, axiosAuth) => {
   try {
-    console.log(values,axiosAuth);
     const {data} = await urlMultipartActions.post(`/api/listings/`, values, axiosAuth);
     return data;
-    
   } catch (error) {
     console.log('Error creating listing', error)
     return error;
@@ -34,7 +32,7 @@ export const getGlobalListings = async () => {
 
 export const getSingleListing = async (listingId) => {
   try {
-    const {data} = await urlMultipartActions.get(`/api/listings/detail/${listingId}`);
+    const {data} = await urlActions.get(`/api/listings/detail/${listingId}`);
     return data;
   } catch (error) {
     console.log('Error fetching single listing', error)
@@ -44,7 +42,7 @@ export const getSingleListing = async (listingId) => {
 
 export const updateListing = async (listingId, values, axiosAuth) => {
   try {
-    const {data} = await urlMultipartActions.patch(`/api/listing/${listingId}/`, values, axiosAuth);
+    const {data} = await urlMultipartActions.patch(`/api/listings/${listingId}/`, values, axiosAuth);
     return data;
   } catch (error) {
     console.log('Error updating product', error)

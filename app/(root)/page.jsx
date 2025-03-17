@@ -1,19 +1,20 @@
 'use client';
 
-import PostCard from "@/components/custom/PostCard"
+import { useGetGlobalListings } from "@/actions/react-query/queriesAndMutations";
+import Listings from "@/components/custom/Listings";
 import homes from "@/lib/homes";
-import { useSession } from "next-auth/react";
+import { Loader2 } from "lucide-react";
 
-function Home({}) {
-  const session = useSession();
+function Home() {
+  const {data:listings, isPending} = useGetGlobalListings()
+  if(isPending){
+    return <div className="h-screen grid place-content-center"> <Loader2 className='animate-spin'/> </div>
+  }
+  console.log(listings)
   return (
     <div>
       <section>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 justify-center'>
-      {homes?.map((home)=>(
-          <PostCard key={home.id} image={home.image} title={home.title} location={home.location} features={home.features} price={home.price} />
-        ))}
-      </div>
+      <Listings homes={listings}/>
       </section>
     </div>
   )

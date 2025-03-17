@@ -34,7 +34,7 @@ const formSchema = z.object({
   pricing: z.coerce.number().min(1, "Pricing is required and must be at least 1"),
   longstay_discount: z.coerce.number().min(1).optional(),
   longstay_min_days: z.coerce.number().min(1).optional(),
-  cleaning_fee: z.coerce.number().min(1).optional(),
+  cleaning_fee: z.coerce.number().min(0).optional(),
   facilities: z.string().optional(),
 });
 

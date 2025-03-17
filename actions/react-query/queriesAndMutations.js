@@ -25,7 +25,6 @@ export const useGetHostListings = (axiosAuth)=>{
     return useQuery({
         queryKey: [QUERY_KEYS.GET_LISTINGS],
         queryFn:()=> getHostListings(axiosAuth),
-        enabled:!!axiosAuth
       });
 }
 export const useGetGlobalListings = ()=>{
@@ -39,7 +38,7 @@ export const useGetSingleListing = (listingId)=>{
         queryKey: [QUERY_KEYS.GET_GLOBAL_LISTINGS],
         queryFn:()=> getSingleListing(listingId),
         enabled:!!listingId && listingId !== 'new'
-      });
+    });
 }
 export const useUpdateListing = ()=>{
     const queryClient = useQueryClient()

@@ -20,17 +20,18 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import Review from "@/components/custom/Review";
+import { useGetSingleListing } from "@/actions/react-query/queriesAndMutations";
+import { useParams } from "next/navigation";
 
 function Listing() {
+    const {listingId} = useParams()
+  const {data:singleListing} = useGetSingleListing(listingId)
   const [date, setDate] = useState({
     from: '',
     to: '',
   })
-  let Difference_In_Time =
-    date.to - date.from;
-  let Difference_In_Days =
-    Math.round
-        (Difference_In_Time / (1000 * 3600 * 24));
+  let Difference_In_Time = date.to - date.from;
+  let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
   return (
     <div className="md:px-8 pt-4">
       <section className="md:grid grid-cols-4 gap-3">
