@@ -1,12 +1,12 @@
 'use client';
 
-import HostNavbar from "./components/Navbar";
+import GuestNavbar from "./components/Navbar";
 
-function layout({children}) {
+function GuestLayout({children}) {
   return (
     <div className='px-4 lg:px-8 relative'>
       <div className='fixed bg-white z-50 right-4 lg:right-8 left-4 lg:left-8'>
-      <HostNavbar/>
+      <GuestNavbar/>
       </div>
       <section className='pt-[120px] md:pt-[80px]'>
       {children}
@@ -15,4 +15,4 @@ function layout({children}) {
   )
 }
 
-export default layout
+export default GuestLayout

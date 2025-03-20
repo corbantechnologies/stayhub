@@ -10,7 +10,6 @@ function Home() {
   if(isPending){
     return <div className="h-screen grid place-content-center"> <Loader2 className='animate-spin'/> </div>
   }
-  console.log(listings)
   return (
     <div>
       <section>

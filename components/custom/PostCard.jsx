@@ -12,7 +12,8 @@ const divStyle = {
   height: "250px",
 };
 
-function PostCard({ listingId, images, guests, title, location, price }) {
+function PostCard({ listingId, images, guests, title, location, price, hostId }) {
+  const redirectUrl = hostId ? `/host/${hostId}/homes/${listingId}` : `/listing/${title}/${listingId}`
   return (
     <div className="max-w-[400px]">
       <div className="relative max-w-[400px] h-[250px] rounded-xl overflow-hidden">
@@ -34,7 +35,7 @@ function PostCard({ listingId, images, guests, title, location, price }) {
           <Heart color="white" size={18} />
         </button>
       </div>
-      <Link href={`/listing/${title}/${listingId}`} className="mt-2 px-2 space-y-2">
+      <Link href={redirectUrl} className="mt-2 px-2 space-y-2">
         <div className="flex flex-col lg:flex-row justify-between">
           <p className="font-semibold">{title}</p>
           <span className="flex gap-1 items-center">
