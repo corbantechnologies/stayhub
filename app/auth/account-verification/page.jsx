@@ -45,6 +45,7 @@ function OtpVerification() {
   async function onSubmit(values) {
     try {
       setLoading(true);
+      //verification not working
       const result = await verifyAccount(values.pin);
       
       if (result.success) {
